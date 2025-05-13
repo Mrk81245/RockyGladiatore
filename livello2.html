@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocky Gladiatore - Livello 2</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+    canvas {
+      display: block;
+    }
+    #playTest {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      z-index: 9999;
+      opacity: 0.001; /* invisibile ma cliccabile */
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Canvas di gioco -->
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- Bottone nascosto per sbloccare la musica -->
+  <button id="playTest">▶️</button>
+
+  <!-- Script principale del gioco -->
+  <script src="livello2.js"></script>
+
+  <!-- Script di avvio musica -->
+  <script>
+    const music = new Audio("sounds/legend.mp3");
+    music.loop = true;
+    music.volume = 0.5;
+
+    document.getElementById("playTest").addEventListener("click", () => {
+      music.play().then(() => {
+        console.log("✅ MUSICA PARTITA!");
+      }).catch(err => {
+        console.error("❌ Errore nella musica:", err);
+      });
+    });
+  </script>
+</body>
+</html>

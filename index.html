@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rocky Gladiatore</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gameCanvas"></canvas>
+  <script src="livello1.js"></script>
+
+  <noscript>
+    <p style="color: white; background-color: red; padding: 10px;">Per giocare è necessario JavaScript abilitato.</p>
+  </noscript>
+  <script>
+    window.addEventListener("error", function(e) {
+      const errorBox = document.createElement("div");
+      errorBox.style.position = "fixed";
+      errorBox.style.top = "0";
+      errorBox.style.left = "0";
+      errorBox.style.right = "0";
+      errorBox.style.backgroundColor = "red";
+      errorBox.style.color = "white";
+      errorBox.style.padding = "10px";
+      errorBox.style.zIndex = "9999";
+      errorBox.innerText = "Errore nel caricamento del gioco: " + e.message;
+      document.body.appendChild(errorBox);
+    });
+  </script>
+</body>
+</html>
